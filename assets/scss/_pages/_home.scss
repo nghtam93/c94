@@ -1,7 +1,7 @@
 .home{
     &-new{
         position: relative;
-        padding: 60px 0;
+        padding: 36px 0 60px;
         .el__item{
             margin-bottom: 30px;
             &.-large{
@@ -265,6 +265,10 @@
         .el__item{
             margin-bottom: 24px;
             background-color: #fff;
+            transition: all .5s;
+            &:hover{
+                box-shadow: 0 0 12px 0 #9ec9d0;
+            }
             .dnfix__thumb{
                 padding-top:55%;
             }
@@ -358,7 +362,7 @@
 
     @media (max-width: 1599px){
         &-new{
-            padding: 60px 0 20px;
+            padding: 36px 0 20px;
             .el__item__title {
                 font-size: 18px;
                 line-height: 26px;
@@ -418,7 +422,7 @@
 
     @media (max-width: 1199px){
         &-new {
-            padding: 40px 0 20px;
+            padding: 26px 0 20px;
             .el__item__title {
                 font-size: 16px;
                 line-height: 26px;
@@ -475,7 +479,7 @@
 
     @media (max-width: 991px){
         &-new{
-            padding: 40px 0 0px;
+            padding: 26px 0 0px;
             &__fix {
                 margin-top: 0;
             }

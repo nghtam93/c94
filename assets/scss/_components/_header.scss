@@ -3,7 +3,6 @@
 	top: 0;
 	width: 100%;
 	z-index: 999;
-	padding: 10px 0;
 	background: #FBFBFB;
 	&.is-sticky{
 		position: fixed;
@@ -40,12 +39,12 @@
 	&__wrap{
 		position: relative;
 		width: 100%;
-		padding-top:12px;
+		padding:24px 0;
 		transition: all .5s;
 		&:before{
 			content: '';
 	        position: absolute;
-	        top: -10px;
+	        top: 0px;
 	        left: 0;
 	        width: 100%;
 	        height: 1px;
@@ -72,17 +71,27 @@
 		}
 	}
 	@media (max-width: 991px){
-
 		&__top {
 		    display: none;
 		}
-		&__wrap:before{
-			display: none;
+		&.is-sticky{
+			.header__wrap{
+				padding: 12px 0;
+			}
+			.header__right {
+			    top: 2px;
+			}
+		}
+		&__wrap{
+			padding: 12px 0;
+			&:before{
+				display: none;
+			}
 		}
 		&__right {
 		    position: relative;
 		    margin-left: auto;
-		    top: 0;
+		    top: 2px;
 		}
 		.logo {
 		    flex-grow: 1;
