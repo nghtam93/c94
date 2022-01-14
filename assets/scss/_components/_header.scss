@@ -9,13 +9,13 @@
 		box-shadow: 0 0 12px 0px #ccc;
 		animation:stuckMoveDown .6s;
 		.header__wrap{
-			padding-top: 0;
+			padding: 12px 0;
 			&:before{
 				display: none;
 			}
 		}
 		.header__right{
-			top: 6px;
+			top: 17px;
 		}
 	}
 	.logo{
@@ -53,7 +53,7 @@
 	}
 	&__right{
 		position: absolute;
-		top: 18px;
+		top: 30px;
 		right: 0;
 		color: #333333;
 		display: flex;
@@ -123,6 +123,7 @@
 	&.open-search{
 		.header__search--toggle .icon-search::before {
 			content: '\e906';
+			font-size: 20px;
 		}
 	}
 	&--toggle{

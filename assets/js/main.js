@@ -276,9 +276,41 @@ $(document).ready(function(){
     //check home
 
     if($('body').hasClass( "single" )){
+        var offset_default_top = 80+"px"
+        var offset_top = $('.wrap__page').offset().top + 24
+        var offset_bottom = $('footer.footer').outerHeight();
+        var wrap_single_height = $('.wrap__single').outerHeight();
+
+        setTimeout(function(){
+            offset_top = $('.wrap__page').offset().top + 24
+            if(window.pageYOffset - offset_bottom > offset_top){
+                $('.ads--pc').css('top',offset_default_top - offset_bottom +"px")
+            }else{
+                $('.ads--pc').css('top',offset_top +"px")
+            }
+        }, 500);
+
+        $(window).scroll(function(){
+            var doc = document.documentElement;
+            var top = (window.pageYOffset || doc.scrollTop)  - (doc.clientTop || 0);
+
+            // console.log("top: "+top)
+            // console.log( "clientHeight: " + wrap_single_height)
+            // console.log( "offset_bottom: " + offset_bottom)
+            // console.log(wrap_single_height - top)
+            if(top > offset_top){
+                if(wrap_single_height - top < offset_bottom){
+                    $('.ads--pc').css({"top":offset_top - offset_bottom+"px","position":"absolute"});
+                }else{
+                    $('.ads--pc').css({"top":offset_default_top,"position":"fixed"});
+                }
+            }else{
+                $('.ads--pc').css({"top":offset_top+"px"});
+            }
+        });
 
         $('.related__slider').slick({
-            slidesToShow: 3,
+            slidesToShow: 4,
             slidesToScroll: 1,
             arrows: true,
             dots: false,
@@ -288,14 +320,20 @@ $(document).ready(function(){
                   settings: {
                     arrows: false,
                     dots: true,
-                    slidesToShow: 2,
+                    slidesToShow: 3,
                   }
                 },
                 {
                   breakpoint: 767,
                   settings: {
-                    centerMode: true,
-                    variableWidth: true,
+                    arrows: false,
+                    dots: true,
+                    slidesToShow: 2,
+                  }
+                },
+                {
+                  breakpoint: 575,
+                  settings: {
                     arrows: false,
                     dots: true,
                     slidesToShow: 1,
@@ -307,7 +345,6 @@ $(document).ready(function(){
         Fancybox.bind("a[href$='.jpg'], a[href$='.png'], a[href$='.jpeg'], a[href$='.gif']", {
           groupAttr: false,
         });
-
     }
 
 });
