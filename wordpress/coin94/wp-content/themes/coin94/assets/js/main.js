@@ -4,7 +4,7 @@ $(document).ready(function(){
           return !$.trim(el.html())
       }
 
-    new WOW().init();
+    // new WOW().init();
 
     //-------------------------------------------------
     // Header Search
